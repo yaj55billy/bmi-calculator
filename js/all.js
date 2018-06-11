@@ -25,6 +25,8 @@ for(i=0; i<reBtn.length;i++){
 };
 
 
+
+
 // 初始狀態
 function init(){
     document.querySelector('.height').value = '';
@@ -63,65 +65,65 @@ function countBmi(e){
 
         // 理想
         var normalWeight = document.querySelector('.result.nw');
+        var rlName = '理想';
         resultBtn.style.display = "none";
         normalWeight.style.display = "block";
         bmiValue[0].innerHTML = bmi;
-        var rlName = '理想';
-        recordsFunc(data,bmi,rlName,heightValue,weightValue);
+        // var border = 'border-style1';
 
     } else if(bmi <18.5){
         // 過輕
-        var underWeight = document.querySelector('.result.uw');
+        var underWeight = document.querySelector('.result.uw'); 
+        var rlName ='過輕';
         resultBtn.style.display = "none";
         underWeight.style.display = "block";
         bmiValue[1].innerHTML = bmi;
-        var rlName ='過輕';
-        recordsFunc(data,bmi,rlName,heightValue,weightValue);
-
+        // var border = 'border-style2';
     } else if(bmi >= 24 && bmi < 27){
         // 超重
         var overWeight = document.querySelector('.result.ow');
+        var rlName ='超重';
         resultBtn.style.display = "none";
         overWeight.style.display = "block";
         bmiValue[2].innerHTML = bmi;
-        var rlName ='超重';
-        recordsFunc(data,bmi,rlName,heightValue,weightValue);
+        // var borderStyle = border-style3;
 
     } else if (bmi >= 27 && bmi < 30){
         // 輕度肥胖
         var overWeightS = document.querySelector('.result.ow-s');
+        var rlName ='輕度肥胖';
         resultBtn.style.display = "none";
         overWeightS.style.display = "block";
-        bmiValue[3].innerHTML = bmi;
-        var rlName ='輕度肥胖';
-        recordsFunc(data,bmi,rlName,heightValue,weightValue);
+        bmiValue[3].innerHTML = bmi; 
 
     } else if (bmi >= 30 && bmi < 35){
         //中度肥胖
         var overWeightM = document.querySelector('.result.ow-m');
+        var rlName ='中度肥胖';
         resultBtn.style.display = "none";
         overWeightM.style.display = "block";
         bmiValue[4].innerHTML = bmi;
-        var rlName ='中度肥胖';
-        recordsFunc(data,bmi,rlName,heightValue,weightValue);
-
+        
     } else if (bmi >= 35){
         // 重度肥胖
         var overWeightB = document.querySelector('.result.ow-b');
+        var rlName ='重度肥胖';
         resultBtn.style.display = "none";
         overWeightB.style.display = "block";
         bmiValue[5].innerHTML = bmi;
-        var rlName ='重度肥胖';
-        recordsFunc(data,bmi,rlName,heightValue,weightValue);
     }
 
     var dataInfo = {rlName,bmi,weightValue,heightValue};
     data.push(dataInfo);
     localStorage.setItem('info', JSON.stringify(data));
+    recordsFunc(data,bmi,rlName,heightValue,weightValue);
 
     // 在按reBtn之前 讓input無效
     document.querySelector('.height').disabled = true;
     document.querySelector('.weight').disabled = true;
+
+    // var borderStyle = document.querySelectorAll('.records li');
+    // console.log(borderStyle);
 }
 
 
@@ -132,18 +134,10 @@ recordsFunc(data);
 
 function recordsFunc(data,bmi,rlName,heightValue,weightValue){
 
-    console.log(bmi);
-    console.log(rlName);
-    console.log(heightValue);
-    console.log(weightValue);
-    console.log(data);
-    
-    console.log(data.length);
-
     var str = '';
    
     for (var i = 0; i< data.length; i++) {
-        str += '<li class="border-style1 records-list">'+
+        str += '<li class="records-list">'+
         '<div class="rl-name">'+data[i].rlName+'</div>'+
             '<ul class="rl-info">'+
                 '<li>BMI <span id="main-info-bmi">'+data[i].bmi+'</span></li>'+
