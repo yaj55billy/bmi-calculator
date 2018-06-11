@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>BMI 計算</title>
+
+    <!-- reset -->
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+
+    <!-- desk && phone -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/phone.css" media="screen and (max-width:1023px)">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="wrap">
+                <div class="logo">
+                    <img src="images/BMICLogo.png" alt="">
+                </div>
+                <form action="">
+                    <div class="body-info">
+                        <label for="height">身高 cm</label>
+                        <input type="text" class="height" id="height" name="height" placeholder="請輸入身高" required>
+                        <label for="weight">體重 kg</label>
+                        <input type="text" class="weight" id="weight" name="weight" placeholder="請輸入體重" required>
+                    </div>
+
+                    <div class="calc-btn">
+                        <div class="origin-btn">
+                            <p>看結果</p>
+                        </div>
+
+                        <!-- 理想 Normal weight -->
+                        <div class="result nw">
+                            <div class="result-text">
+                                <h2 class="bmi-value"></h2>
+                                <p>BMI</p>
+                            </div>
+                            <h2 class="bmi-situation">
+                                理想
+                            </h2>
+                            <div class="re-btn">
+                                <img src="images/icons_loop.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 過輕 underweight  -->
+                        <div class="result uw">
+                            <div class="result-text">
+                                <h2 class="bmi-value"></h2>
+                                <p>BMI</p>
+                            </div>
+
+                            <h2 class="bmi-situation">
+                                過輕
+                            </h2>
+                            <div class="re-btn">
+                                <img src="images/icons_loop.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 超重 overweight -->
+                        <div class="result ow">
+                            <div class="result-text">
+                                <h2 class="bmi-value"></h2>
+                                <p>BMI</p>
+                            </div>
+
+                            <h2 class="bmi-situation">
+                                超重
+                            </h2>
+                            <div class="re-btn">
+                                <img src="images/icons_loop.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 輕度肥胖 s -->
+                        <div class="result ow-s">
+                            <div class="result-text">
+                                <h2 class="bmi-value"></h2>
+                                <p>BMI</p>
+                            </div>
+
+                            <h2 class="bmi-situation">
+                                輕度肥胖
+                            </h2>
+                            <div class="re-btn">
+                                <img src="images/icons_loop.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 中度肥胖 middle -->
+                        <div class="result ow-m">
+                            <div class="result-text">
+                                <h2 class="bmi-value"></h2>
+                                <p>BMI</p>
+                            </div>
+
+                            <h2 class="bmi-situation">
+                                中度肥胖
+                            </h2>
+                            <div class="re-btn">
+                                <img src="images/icons_loop.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 重度肥胖 big -->
+                        <div class="result ow-b">
+                            <div class="result-text">
+                                <h2 class="bmi-value"></h2>
+                                <p>BMI</p>
+                            </div>
+
+                            <h2 class="bmi-situation">
+                                重度肥胖
+                            </h2>
+                            <div class="re-btn">
+                                <img src="images/icons_loop.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="container">
+            <div class="wrap">
+                <h3 class="title">BMI 紀錄</h3>
+
+                <ul class="records">
+                    <!-- <li class="border-style1 records-list">
+                        <div class="rl-name">理想</div>
+                        <ul class="rl-info">
+                            <li>BMI <span id="main-info-bmi">20.9</span></li>
+                            <li>Weight <span id="main-info-weight">70</span></li>
+                            <li>Height <span id="main-info-height">180</span></li>
+                        </ul>
+                        <div class="rl-date">06-19-2017</div>
+                    </li> -->
+                    
+                    <!-- <li class="border-style2 records-list">
+                        <div class="rl-name">過輕</div>
+                        <ul class="rl-info">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <div class="rl-date"></div>
+                    </li>
+                    <li class="border-style3 records-list">
+                        <div class="rl-name">過重</div>
+                        <ul class="rl-info">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <div class="rl-date"></div>
+                    </li>
+                    <li class="border-style4 records-list">
+                        <div class="rl-name">輕度肥胖</div>
+                        <ul class="rl-info">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <div class="rl-date"></div>
+                    </li>
+                    <li class="border-style5 records-list">
+                        <div class="rl-name">中度肥胖</div>
+                        <ul class="rl-info">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <div class="rl-date"></div>
+                    </li>
+                    <li class="border-style6 records-list">
+                        <div class="rl-name">重度肥胖</div>
+                        <ul class="rl-info">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <div class="rl-date"></div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <a href="index.html">
+            <img src="images/BMILogo2.jpg" alt="footerLogo">
+        </a>
+    </footer>
+
+
+    <!-- js -->
+    <script type="text/javascript" src="js/all.js"></script>
+
+</body>
+</html>
