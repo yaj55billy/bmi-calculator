@@ -13,6 +13,8 @@ header .logo{
 
 header form{
     display: block;
+    width: 270px;
+    margin: 0 auto;
 }
 
 .rl-name, .rl-info, .rl-date{
@@ -70,6 +72,17 @@ ul.records >li.border-style5{
 }
 ul.records >li.border-style6{
     border-left: solid 5px #FF1200;
+}
+
+.bmi-situation{
+    top: 155px;
+    left: 0;
+    right: 0;
+    font-size: 27px;
+}
+
+.result.ow-s .bmi-situation, .result.ow-m .bmi-situation, .result.ow-b .bmi-situation{
+    right: 0px;
 }
 
 
