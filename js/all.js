@@ -26,7 +26,6 @@ for(i=0; i<reBtn.length;i++){
 
 
 
-
 // 初始狀態
 function init(){
     document.querySelector('.height').value = '';
@@ -70,6 +69,8 @@ function countBmi(e){
         normalWeight.style.display = "block";
         bmiValue[0].innerHTML = bmi;
         // var border = 'border-style1';
+        var color ='border-style1';
+        
 
     } else if(bmi <18.5){
         // 過輕
@@ -78,7 +79,8 @@ function countBmi(e){
         resultBtn.style.display = "none";
         underWeight.style.display = "block";
         bmiValue[1].innerHTML = bmi;
-        // var border = 'border-style2';
+        var color ='border-style2';
+        
     } else if(bmi >= 24 && bmi < 27){
         // 超重
         var overWeight = document.querySelector('.result.ow');
@@ -86,7 +88,7 @@ function countBmi(e){
         resultBtn.style.display = "none";
         overWeight.style.display = "block";
         bmiValue[2].innerHTML = bmi;
-        // var borderStyle = border-style3;
+        var color ='border-style3';
 
     } else if (bmi >= 27 && bmi < 30){
         // 輕度肥胖
@@ -95,6 +97,7 @@ function countBmi(e){
         resultBtn.style.display = "none";
         overWeightS.style.display = "block";
         bmiValue[3].innerHTML = bmi; 
+        var color ='border-style4';
 
     } else if (bmi >= 30 && bmi < 35){
         //中度肥胖
@@ -103,6 +106,7 @@ function countBmi(e){
         resultBtn.style.display = "none";
         overWeightM.style.display = "block";
         bmiValue[4].innerHTML = bmi;
+        var color ='border-style5';
         
     } else if (bmi >= 35){
         // 重度肥胖
@@ -111,19 +115,18 @@ function countBmi(e){
         resultBtn.style.display = "none";
         overWeightB.style.display = "block";
         bmiValue[5].innerHTML = bmi;
+        var color ='border-style6';
     }
 
-    var dataInfo = {rlName,bmi,weightValue,heightValue};
+    var dataInfo = {rlName,bmi,weightValue,heightValue,color};
     data.push(dataInfo);
     localStorage.setItem('info', JSON.stringify(data));
-    recordsFunc(data,bmi,rlName,heightValue,weightValue);
+    recordsFunc(data,bmi,rlName,heightValue,weightValue,color);
 
     // 在按reBtn之前 讓input無效
     document.querySelector('.height').disabled = true;
     document.querySelector('.weight').disabled = true;
 
-    // var borderStyle = document.querySelectorAll('.records li');
-    // console.log(borderStyle);
 }
 
 
@@ -132,19 +135,21 @@ function countBmi(e){
 var data = JSON.parse(localStorage.getItem('info')) || [];
 recordsFunc(data);
 
-function recordsFunc(data,bmi,rlName,heightValue,weightValue){
+function recordsFunc(data,bmi,rlName,heightValue,weightValue,color){
 
     var str = '';
+    var Today = new Date();
+    var catchToday =  Today.getFullYear()+ "-" + (Today.getMonth()+1) + "-" + Today.getDate();
    
     for (var i = 0; i< data.length; i++) {
-        str += '<li class="records-list">'+
+        str += '<li class="'+ data[i].color +' records-list">'+
         '<div class="rl-name">'+data[i].rlName+'</div>'+
             '<ul class="rl-info">'+
                 '<li>BMI <span id="main-info-bmi">'+data[i].bmi+'</span></li>'+
                 '<li>Weight <span id="main-info-weight">'+data[i].weightValue+'</span></li>'+
                 '<li>Height <span id="main-info-height">'+data[i].heightValue+'</span></li>'+
             '</ul>'+
-        '<div class="rl-date">06-19-2017</div>'+
+        '<div class="rl-date">'+catchToday+'</div>'+
         '</li>';
     }
     records.innerHTML = str;
